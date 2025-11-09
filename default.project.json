@@ -6,9 +6,12 @@
     "ReplicatedStorage": {
       "Shared": {
         "$path": "src/shared"
+      },
+      "Packages":{
+        "$path":"Packages"
       }
     },
-    
+
     "ServerScriptService": {
       "Server": {
         "$path": "src/server"
@@ -21,6 +24,6 @@
           "$path": "src/client"
         }
       }
-    },
+    }
   }
 }
