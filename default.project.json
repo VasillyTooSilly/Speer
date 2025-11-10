@@ -1,28 +1,27 @@
 {
-  "name": "Speer",
+  "name": "SPEER",
   "tree": {
     "$className": "DataModel",
+    "$ignoreUnknownInstances": true,
+      "ReplicatedStorage": {
+        "$className": "ReplicatedStorage",
+       "$path": "src/ReplicatedStorage"
+    },
+      "ServerScriptService": {
+        "$className": "ServerScriptService",
+       "$path": "src/ServerScriptService"
+    },
 
-    "ReplicatedStorage": {
-      "Shared": {
-        "$path": "src/shared"
+     "StarterPlayer": {
+       "$className": "StarterPlayer",
+          "StarterCharacterScripts": {
+           "$className": "StarterCharacterScripts",
+           "$path": "src/StarterCharacterScripts"
       },
-      "Packages":{
-        "$path":"Packages"
-      }
-    },
 
-    "ServerScriptService": {
-      "Server": {
-        "$path": "src/server"
-      }
-    },
-
-    "StarterPlayer": {
       "StarterPlayerScripts": {
-        "Client": {
-          "$path": "src/client"
-        }
+        "$className": "StarterPlayerScripts",
+        "$path": "src/StarterPlayerScripts"
       }
     }
   }

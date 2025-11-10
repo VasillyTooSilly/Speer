@@ -1,5 +1,0 @@
-local replicatedStorage = game:GetService("ReplicatedStorage")
-local Knit = require(replicatedStorage.Packages.Knit)
-Knit.AddControllers(replicatedStorage.Shared.Controllers)
-Knit.Start():Catch(warn)
-print("Knit started")
