@@ -9,3 +9,13 @@ sourcemap.json
 ServerPackages/
 sourcemap.json
 wally.lock
+
+# === Wally packages ===
+Packages/
+Packages/_Index/
+
+# === Rojo & build artifacts ===
+build/
+*.json.lock
+*.rbxl.project.json
+*.rbxmx.project.json
