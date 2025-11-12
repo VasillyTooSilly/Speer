@@ -55,3 +55,32 @@ Notes for contributors
 - Commit messages: use conventional prefixes like `feat:`, `fix:`, `chore:`, `docs:`.
 ---
 Generated/maintained by repository automation (Rojo/Wally) and updated by the project maintainer.
+
+Repository top-level tree
+```
+.
+├── Packages/                 # Wally-installed packages (published into ReplicatedStorage.Packages)
+├── src/                      # Source mapped into the Roblox tree by Rojo
+│   ├── ReplicatedStorage/    # Shared modules
+│   │   └── Hello.luau
+│   ├── ServerScriptService/   # Server scripts & services
+│   │   ├── Main/
+│   │   └── Modules/
+│   ├── StarterCharacterScripts/
+│   │   └── script.luau        # Character-local controller template
+	│   
+│   └── StarterPlayerScripts/  # Client bootstrap and controllers
+│       └── Client/
+│           ├── Controllers/
+│           │   ├── UIController.luau
+│           │   ├── CombatController.luau
+│           │   ├── InputController.luau
+│           │   └── MatchController.luau
+│           └── Main.client.luau
+├── default.project.json       # Rojo mapping
+├── luau.json                  # Editor type resolution for Luau
+├── rokit.toml                 # Pinned tool versions (optional)
+├── selene.toml                # Selene lint config
+├── wally.toml / wally.lock    # Wally package config / lockfile
+└── README.md
+```
