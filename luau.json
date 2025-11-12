@@ -1,0 +1,8 @@
+{
+  "globals": {
+    "game": "Roblox"
+  },
+  "types": [
+    "Packages/_Index/sleitnick_knit@1.7.0/knit"
+  ]
+}
