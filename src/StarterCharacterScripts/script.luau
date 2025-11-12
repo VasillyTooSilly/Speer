@@ -22,3 +22,5 @@ script.AncestryChanged:Connect(function()
 		print("Character destroyed, cleaning up")
 	end
 end)
+
+-- lint-ok: touched to refresh editor diagnostics
