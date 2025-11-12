@@ -15,6 +15,9 @@ wally.lock
 Packages/
 Packages/_Index/
 
+# Ignore any accidentally committed copies of vendored packages under src
+src/ReplicatedStorage/Packages/
+
 # === Rojo & build artifacts ===
 build/
 *.json.lock

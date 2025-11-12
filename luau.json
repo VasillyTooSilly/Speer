@@ -3,6 +3,10 @@
     "game": "Roblox"
   },
   "types": [
-    "Packages/_Index/sleitnick_knit@1.7.0/knit"
+    "Packages/_Index/sleitnick_knit@1.7.0/knit",
+    "Packages/_Index/sleitnick_comm@1.0.1/comm",
+    "Packages/_Index/evaera_promise@4.0.0/promise",
+    "Packages/_Index/sleitnick_option@1.0.5/option",
+    "Packages/_Index/sleitnick_signal@2.0.3/signal"
   ]
 }
