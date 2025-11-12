@@ -10,9 +10,11 @@ Quick summary
 Repository structure (key paths)
 - `default.project.json` — Rojo mapping: maps `src/` into the Roblox tree and maps repo `Packages/` into `ReplicatedStorage.Packages`.
 - `Packages/` — Wally-managed vendored packages (canonical location).
-- `src/ReplicatedStorage` — shared runtime modules (example: `Hello.luau`).
-- `src/ServerScriptService` — server-side scripts (Knit services live here).
-- `src/StarterPlayerScripts/Client` — client boot scripts & controllers.
+- `src/ReplicatedStorage/Shared` — shared constants, utilities, helpers.
+- `src/ReplicatedStorage/Modules` — gameplay systems (weapons, economy, etc.).
+- `src/ServerScriptService` — server bootstrap and Knit services.
+- `src/StarterPlayer/StarterPlayerScripts/Client` — client boot scripts & controllers.
+- `src/StarterGui/LobbyUI`, `HUD`, `Menus` — UI screens and panels.
 
 Developer workflows
 
@@ -61,26 +63,78 @@ Repository top-level tree
 .
 ├── Packages/                 # Wally-installed packages (published into ReplicatedStorage.Packages)
 ├── src/                      # Source mapped into the Roblox tree by Rojo
-│   ├── ReplicatedStorage/    # Shared modules
-│   │   └── Hello.luau
-│   ├── ServerScriptService/   # Server scripts & services
-│   │   ├── Main/
-│   │   └── Modules/
+│   ├── ReplicatedStorage/
+│   │   ├── Shared/           # Utilities, constants, helpers
+│   │   │   └── Hello.luau
+│   │   └── Modules/          # Gameplay systems (ready for expansion)
+│   ├── ServerScriptService/
+│   │   ├── Main.server.luau  # Server bootstrap (Knit initialization)
+│   │   └── Services/         # Knit services directory
+│   │       ├── CombatService.luau (placeholder)
+│   │       ├── MatchmakingService.luau (placeholder)
+│   │       ├── EconomyService.luau (placeholder)
+│   │       └── DataService.luau (placeholder)
 │   ├── StarterCharacterScripts/
-│   │   └── script.luau        # Character-local controller template
-	│   
-│   └── StarterPlayerScripts/  # Client bootstrap and controllers
-│       └── Client/
-│           ├── Controllers/
-│           │   ├── UIController.luau
-│           │   ├── CombatController.luau
-│           │   ├── InputController.luau
-│           │   └── MatchController.luau
-│           └── Main.client.luau
-├── default.project.json       # Rojo mapping
-├── luau.json                  # Editor type resolution for Luau
-├── rokit.toml                 # Pinned tool versions (optional)
-├── selene.toml                # Selene lint config
-├── wally.toml / wally.lock    # Wally package config / lockfile
+│   │   └── script.luau       # Character-local controller template
+│   ├── StarterPlayer/
+│   │   └── StarterPlayerScripts/
+│   │       └── Client/
+│   │           ├── Main.client.luau       # Client bootstrap
+│   │           └── Controllers/
+│   │               ├── UIController.luau
+│   │               ├── CombatController.luau
+│   │               ├── InputController.luau
+│   │               └── MatchController.luau
+│   └── StarterGui/
+│       ├── LobbyUI/          # Lobby UI screens
+│       ├── HUD/              # In-game HUD
+│       └── Menus/            # Game menus
+├── default.project.json      # Rojo mapping
+├── luau.json                 # Editor type resolution for Luau
+├── rokit.toml                # Pinned tool versions (optional)
+├── selene.toml               # Selene lint config
+├── wally.toml / wally.lock   # Wally package config / lockfile
 └── README.md
+```
+```
+.
+├── Packages/                           # Wally-installed packages (published into ReplicatedStorage.Packages)
+├── src/                                # Source mapped into the Roblox tree by Rojo
+│   ├── ReplicatedStorage/
+│   │   ├── Shared/                     # Shared constants, utilities, helpers
+│   │   │   └── Hello.luau
+│   │   └── Modules/                    # Gameplay systems
+│   │
+│   ├── ServerScriptService/
+│   │   ├── Main.server.luau            # Server bootstrap (Knit server entry)
+│   │   └── Services/                   # Knit services
+│   │       ├── CombatService.luau
+│   │       ├── MatchmakingService.luau
+│   │       ├── EconomyService.luau
+│   │       └── DataService.luau
+│   │
+│   ├── StarterPlayer/
+│   │   └── StarterPlayerScripts/
+│   │       └── Client/
+│   │           ├── Main.client.luau    # Client bootstrap (Knit client entry)
+│   │           └── Controllers/        # Knit controllers
+│   │               ├── UIController.luau
+│   │               ├── CombatController.luau
+│   │               ├── InputController.luau
+│   │               └── MatchController.luau
+│   │
+│   ├── StarterCharacterScripts/
+│   │   └── script.luau                 # Character-local controller template
+│   │
+│   └── StarterGui/
+│       ├── LobbyUI/                    # Lobby screens
+│       ├── HUD/                        # In-game HUD elements
+│       └── Menus/                      # Pause/Settings menus
+│
+├── default.project.json                # Rojo mapping (defines game tree structure)
+├── luau.json                           # Editor type resolution for Luau language server
+├── rokit.toml                          # Pinned tool versions (optional)
+├── selene.toml                         # Selene lint config
+├── wally.toml / wally.lock             # Wally package config / lockfile
+└── README.md                           # This file
 ```
