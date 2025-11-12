@@ -53,9 +53,5 @@ Troubleshooting
 Notes for contributors
 - Do not manually edit `Packages/` unless you're vendoring a change — prefer `wally install` and let Wally manage versions. The repo ignores `src/ReplicatedStorage/Packages` to prevent accidental duplicates.
 - Commit messages: use conventional prefixes like `feat:`, `fix:`, `chore:`, `docs:`.
-
-Want more?
-If you'd like I can add a short developer quickstart (VS Code tasks for Rojo, rokit usage, or an example Knit controller template). Open an issue or request and I'll add it.
-
 ---
 Generated/maintained by repository automation (Rojo/Wally) and updated by the project maintainer.
