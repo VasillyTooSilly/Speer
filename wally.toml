@@ -1,8 +1,12 @@
 [package]
-name = "kin/speer"
+name = "vasily/speer"
 version = "0.1.0"
-registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
+registry = "https://github.com/UpliftGames/wally-index"
+license = "MIT"
+authors = ["Vasily"]
 
 [dependencies]
-Knit = "sleitnick/knit@1.4.7"
+Knit = "sleitnick/knit@^1.7.0"
+Signal = "sleitnick/signal@^1.5.0"
+Promise = "evaera/promise@^4.0.0"

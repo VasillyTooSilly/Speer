@@ -1,14 +1,25 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local Knit = require(ReplicatedStorage:WaitForChild("Packages"):WaitForChild("Knit"))
+local Packages = ReplicatedStorage:WaitForChild("Packages")
+local Knit = require(Packages:WaitForChild("Knit"))
 
 local MatchController = Knit.CreateController({ Name = "MatchController" })
 
-function MatchController:KnitInit()
-	-- Initialize match state and UI bindings
-end
+local MatchmakingService
+local UIController
 
 function MatchController:KnitStart()
-	-- Start match-specific listeners, timers, etc.
+	MatchmakingService = Knit.GetService("MatchmakingService")
+	UIController = Knit.GetController("UIController")
+
+	MatchmakingService.StateChanged:Connect(function(state)
+		UIController:SetMatchState(state)
+	end)
+
+	-- initial pull
+	task.spawn(function()
+		local st = MatchmakingService:GetState()
+		UIController:SetMatchState(st)
+	end)
 end
 
 return MatchController
